@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="250">
+  <img src="logo.png" width="250">
 </p>
 
 <h1 align="center">KobraOS</h1>
