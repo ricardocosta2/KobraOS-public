@@ -1,265 +1,263 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: #080d14;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #fff;
-    padding: 0;
-  }
-  .banner {
-    background: linear-gradient(135deg, #080d14 0%, #0a1628 50%, #080d14 100%);
-    border: 1px solid #1a3a6b;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-  .grid-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(30,100,200,0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(30,100,200,0.07) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-  }
-  .glow-left {
-    position: absolute;
-    left: -60px; top: -60px;
-    width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(0,140,255,0.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    padding: 32px 32px 20px;
-    position: relative;
-  }
-  .logo-img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 18px rgba(0,160,255,0.5));
-    flex-shrink: 0;
-  }
-  .title-block { flex: 1; }
-  .project-name {
-    font-size: 36px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    background: linear-gradient(90deg, #7ecfff, #1a8fff, #7ecfff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.1;
-  }
-  .tagline {
-    font-size: 13px;
-    color: #4a8fc7;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-top: 6px;
-  }
-  .subtitle {
-    font-size: 15px;
-    color: #8cb8db;
-    margin-top: 10px;
-    line-height: 1.5;
-    max-width: 480px;
-  }
-  .sections {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
-    position: relative;
-  }
-  .section {
-    padding: 20px 24px 24px;
-    border-top: 1px solid #1a3a6b;
-    position: relative;
-  }
-  .section:not(:last-child) {
-    border-right: 1px solid #1a3a6b;
-  }
-  .section-title {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .dot-done { background: #22d17a; box-shadow: 0 0 6px #22d17a; }
-  .dot-todo { background: #1a8fff; box-shadow: 0 0 6px #1a8fff; }
-  .dot-feat { background: #f5a623; box-shadow: 0 0 6px #f5a623; }
-  .title-done { color: #22d17a; }
-  .title-todo { color: #1a8fff; }
-  .title-feat { color: #f5a623; }
-  .item {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 9px;
-    font-size: 13px;
-    line-height: 1.4;
-  }
-  .check {
-    width: 16px; height: 16px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 9px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .check-done { background: rgba(34,209,122,0.18); color: #22d17a; border: 1px solid #22d17a; }
-  .check-todo { background: rgba(26,143,255,0.12); color: #1a8fff; border: 1px solid #1a8fff; }
-  .check-feat { background: rgba(245,166,35,0.12); color: #f5a623; border: 1px solid #f5a623; }
-  .item-text-done { color: #c8f0de; }
-  .item-text-todo { color: #a8cfe8; }
-  .item-text-feat { color: #e8c888; }
-  .footer {
-    border-top: 1px solid #1a3a6b;
-    padding: 14px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
-  .footer-left {
-    font-size: 12px;
-    color: #3a6a9a;
-  }
-  .footer-left span { color: #4a8fc7; }
-  .tech-pills {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .pill {
-    background: rgba(26,143,255,0.1);
-    border: 1px solid rgba(26,143,255,0.3);
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 11px;
-    color: #5aaff0;
-    letter-spacing: 0.5px;
-  }
-  .pill.green {
-    background: rgba(34,209,122,0.08);
-    border-color: rgba(34,209,122,0.25);
-    color: #44cc88;
-  }
-  .pulse-line {
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #1a8fff, #7ecfff, #1a8fff, transparent);
-    margin: 0;
-  }
-  .status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(34,209,122,0.1);
-    border: 1px solid rgba(34,209,122,0.35);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 12px;
-    color: #22d17a;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  .live-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #22d17a;
-    box-shadow: 0 0 6px #22d17a;
-    animation: blink 1.4s infinite;
-  }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KobraOS | AI-Powered Operating System for Anycubic Kobra X</title>
+
+    <meta name="description"
+          content="KobraOS is an open-source AI-powered operating system for the Anycubic Kobra X. Local-first, cloud-free, privacy-focused and built for makers.">
+
+    <meta name="keywords"
+          content="KobraOS, Anycubic Kobra X, ESP32, AI, MQTT, Home Assistant, Open Source, 3D Printing">
+
+    <meta name="author"
+          content="Ricardo Da Costa">
+
+    <meta property="og:title"
+          content="KobraOS">
+
+    <meta property="og:description"
+          content="Smarter Control. Better Prints. More Possibilities.">
+
+    <meta property="og:image"
+          content="assets/logo.png">
+
+    <meta property="og:type"
+          content="website">
+
+    <link rel="icon"
+          href="assets/logo.png">
+
+    <link rel="stylesheet"
+          href="styles.css">
+
 </head>
+
 <body>
-<div class="banner">
-  <div class="grid-bg"></div>
-  <div class="glow-left"></div>
 
-  <div class="pulse-line"></div>
+<header class="hero">
 
-  <div class="header">
-    <img class="logo-img" src="/mnt/user-data/uploads/KobraOS.png" alt="KobraOS Logo" onerror="this.style.display='none'">
-    <div class="title-block">
-      <div class="project-name">KobraOS</div>
-      <div class="tagline">Smarter Control · Better Prints · More Possibilities</div>
-      <div class="subtitle">Um sistema de inteligência artificial integrado diretamente na Anycubic Kobra X — sem cloud, sem subscrições, sem limitações.</div>
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img src="assets/logo.png"
+                 alt="KobraOS Logo">
+
+            <span>KobraOS</span>
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#features">Features</a>
+
+            <a href="#architecture">Architecture</a>
+
+            <a href="#roadmap">Roadmap</a>
+
+            <a href="#opensource">Open Source</a>
+
+        </div>
+
+        <a class="github-button"
+           href="https://github.com/ricardocosta2/KobraOS-public"
+           target="_blank">
+
+            View on GitHub
+
+        </a>
+
+    </nav>
+
+    <section class="hero-content">
+
+        <div class="hero-left">
+
+            <span class="badge">
+
+                ACTIVE DEVELOPMENT
+
+            </span>
+
+            <h1>
+
+                AI-powered operating system
+                <br>
+                for the Anycubic Kobra X
+
+            </h1>
+
+            <p>
+
+                KobraOS transforms the Anycubic Kobra X into a fully local,
+                intelligent 3D printing platform.
+
+                No subscriptions.
+
+                No vendor lock-in.
+
+                No cloud dependency.
+
+                Just fast, private and reliable control powered by ESP32.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="https://github.com/ricardocosta2/KobraOS-public"
+                   target="_blank"
+                   class="primary">
+
+                    ⭐ Star on GitHub
+
+                </a>
+
+                <a href="#features"
+                   class="secondary">
+
+                    Learn More
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <img src="assets/logo.png"
+                 alt="KobraOS">
+
+        </div>
+
+    </section>
+
+</header>
+
+<main>
+
+<section id="features">
+
+    <h2>
+
+        Why KobraOS?
+
+    </h2>
+
+    <div class="cards">
+
+        <article class="card">
+            <h3>100% Local</h3>
+            <p>No cloud dependency.</p>
+        </article>
+
+        <article class="card">
+            <h3>Automatic Discovery</h3>
+            <p>Find your printer automatically on the local network.</p>
+        </article>
+
+        <article class="card">
+            <h3>Live Printer Data</h3>
+            <p>Real-time temperatures, progress and printer status.</p>
+        </article>
+
+        <article class="card">
+            <h3>Voice Assistant</h3>
+            <p>Interact naturally with your printer.</p>
+        </article>
+
+        <article class="card">
+            <h3>AI Diagnostics</h3>
+            <p>Detect failures before they ruin your prints.</p>
+        </article>
+
+        <article class="card">
+            <h3>Home Assistant</h3>
+            <p>Native local integration.</p>
+        </article>
+
     </div>
-    <div class="header-right">
-      <div class="status-badge"><div class="live-dot"></div>Em desenvolvimento ativo</div>
-      <div style="font-size:11px;color:#3a6a9a;text-align:right;">ESP32-S3 · ESP-IDF · C++<br>PlatformIO · MQTT Local</div>
-    </div>
-  </div>
 
-  <div class="sections">
-    <div class="section">
-      <div class="section-title"><div class="dot dot-done"></div><span class="title-done">✓ Já feito</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Ligação Wi-Fi automática com portal de configuração</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Descoberta automática de credenciais da impressora via LAN</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Comunicação MQTT local encriptada (sem cloud)</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Estado em tempo real: temp. bico, mesa, progresso, camadas</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Deteção de impressão ativa e dados de progresso</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Portal web local para configurar IP da impressora</span></div>
+</section>
+
+<section id="architecture">
+
+    <h2>
+
+        Architecture
+
+    </h2>
+
+    <div id="architecture-diagram">
+
     </div>
 
-    <div class="section">
-      <div class="section-title"><div class="dot dot-todo"></div><span class="title-todo">→ A construir</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Ecrã touch para estado em tempo real na impressora</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Microfone externo I2S (longe das ventoinhas)</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Coluna de som para respostas por voz</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Integração com IA para linguagem natural</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Câmara para deteção visual de falhas</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Integração com Home Assistant</span></div>
+</section>
+
+<section id="roadmap">
+
+    <h2>
+
+        Roadmap
+
+    </h2>
+
+    <div id="roadmap-container">
+
     </div>
 
-    <div class="section">
-      <div class="section-title"><div class="dot dot-feat"></div><span class="title-feat">★ Visão final</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">"Como está a impressão?" — resposta por voz com dados reais</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Alerta automático se spaghetti effect ou descolamento</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Histórico e aprendizagem com falhas anteriores</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Notificações no Home Assistant / Alexa</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">100% local, privado, open source</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Disponível para toda a comunidade Kobra X</span></div>
-    </div>
-  </div>
+</section>
 
-  <div class="footer">
-    <div class="footer-left">Projeto open source · <span>Anycubic Kobra X</span> · Ricardo Da Costa</div>
-    <div class="tech-pills">
-      <div class="pill">Sem cloud</div>
-      <div class="pill">LAN local</div>
-      <div class="pill green">Open source</div>
-      <div class="pill">MQTT · TLS</div>
-    </div>
-  </div>
+<section id="opensource">
 
-  <div class="pulse-line"></div>
-</div>
+    <h2>
+
+        Open Source
+
+    </h2>
+
+    <p>
+
+        KobraOS is built for the community.
+
+        Contributions, ideas and feedback are always welcome.
+
+    </p>
+
+    <a href="https://github.com/ricardocosta2/KobraOS-public"
+       target="_blank"
+       class="primary">
+
+        Become a Contributor
+
+    </a>
+
+</section>
+
+</main>
+
+<footer>
+
+    <p>
+
+        © 2026 KobraOS
+
+        •
+
+        Open Source
+
+        •
+
+        Built with ESP32
+
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
