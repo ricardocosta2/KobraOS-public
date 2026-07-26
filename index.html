@@ -1,263 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KobraOS | AI-Powered Operating System for Anycubic Kobra X</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="KobraOS is an open-source AI-powered operating system for the Anycubic Kobra X. Local-first, cloud-free, privacy-focused and built for makers.">
+<title>KobraOS</title>
 
-    <meta name="keywords"
-          content="KobraOS, Anycubic Kobra X, ESP32, AI, MQTT, Home Assistant, Open Source, 3D Printing">
+<meta name="description" content="Open-source AI companion for the Anycubic Kobra X">
 
-    <meta name="author"
-          content="Ricardo Da Costa">
+<style>
 
-    <meta property="og:title"
-          content="KobraOS">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    <meta property="og:description"
-          content="Smarter Control. Better Prints. More Possibilities.">
+body{
 
-    <meta property="og:image"
-          content="assets/logo.png">
+background:#070b12;
+font-family:Segoe UI,Arial,sans-serif;
+color:white;
 
-    <meta property="og:type"
-          content="website">
+}
 
-    <link rel="icon"
-          href="assets/logo.png">
+.hero{
 
-    <link rel="stylesheet"
-          href="styles.css">
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+padding:40px;
+
+background:
+radial-gradient(circle at top,#12335d 0%,transparent 50%),
+linear-gradient(#070b12,#0b1320);
+
+}
+
+.logo{
+
+width:170px;
+margin-bottom:30px;
+
+filter:drop-shadow(0 0 25px rgba(0,150,255,.45));
+
+}
+
+h1{
+
+font-size:64px;
+font-weight:800;
+
+background:linear-gradient(90deg,#84d5ff,#1d8cff);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+margin-bottom:20px;
+
+}
+
+.tagline{
+
+font-size:24px;
+
+color:#8ebfe5;
+
+margin-bottom:25px;
+
+}
+
+.description{
+
+max-width:850px;
+
+line-height:1.8;
+
+font-size:19px;
+
+color:#bdd8ec;
+
+margin-bottom:40px;
+
+}
+
+.buttons{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.button{
+
+padding:15px 28px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.25s;
+
+}
+
+.primary{
+
+background:#1d8cff;
+
+color:white;
+
+}
+
+.primary:hover{
+
+background:#3da0ff;
+
+}
+
+.secondary{
+
+border:1px solid #356aa8;
+
+color:#8ec8ff;
+
+}
+
+.secondary:hover{
+
+background:#143050;
+
+}
+
+section{
+
+padding:80px 30px;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+h2{
+
+font-size:42px;
+
+margin-bottom:45px;
+
+text-align:center;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:#0f1827;
+
+border:1px solid #23436d;
+
+border-radius:16px;
+
+padding:30px;
+
+transition:.25s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
+border-color:#3798ff;
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+color:#7dc7ff;
+
+}
+
+.card p{
+
+color:#b4cfe2;
+
+line-height:1.7;
+
+}
+
+.roadmap{
+
+display:grid;
+
+gap:18px;
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+.item{
+
+padding:16px;
+
+border-radius:10px;
+
+background:#0f1827;
+
+border-left:4px solid #1d8cff;
+
+}
+
+.done{
+
+border-left-color:#22d17a;
+
+}
+
+footer{
+
+padding:35px;
+
+text-align:center;
+
+border-top:1px solid #1b3355;
+
+color:#7098bc;
+
+}
+
+@media(max-width:700px){
+
+h1{
+
+font-size:42px;
+
+}
+
+.tagline{
+
+font-size:20px;
+
+}
+
+.description{
+
+font-size:17px;
+
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header class="hero">
+<section class="hero">
 
-    <nav class="navbar">
+<img src="logo.png" class="logo">
 
-        <div class="logo">
+<h1>KobraOS</h1>
 
-            <img src="assets/logo.png"
-                 alt="KobraOS Logo">
+<div class="tagline">
 
-            <span>KobraOS</span>
+Open-source AI companion for the Anycubic Kobra X
 
-        </div>
+</div>
 
-        <div class="nav-links">
+<div class="description">
 
-            <a href="#features">Features</a>
+KobraOS transforms the Anycubic Kobra X into a smarter, locally controlled 3D printer.
 
-            <a href="#architecture">Architecture</a>
+Built around ESP32, it delivers real-time printer monitoring, local MQTT communication, voice interaction, AI assistance and future Home Assistant integration — all without depending on cloud services.
 
-            <a href="#roadmap">Roadmap</a>
+</div>
 
-            <a href="#opensource">Open Source</a>
+<div class="buttons">
 
-        </div>
+<a class="button primary"
 
-        <a class="github-button"
-           href="https://github.com/ricardocosta2/KobraOS-public"
-           target="_blank">
+href="https://github.com/ricardocosta2/KobraOS-public"
 
-            View on GitHub
+target="_blank">
 
-        </a>
+View on GitHub
 
-    </nav>
+</a>
 
-    <section class="hero-content">
+<a class="button secondary"
 
-        <div class="hero-left">
+href="https://github.com/ricardocosta2/KobraOS-public/blob/main/README.md"
 
-            <span class="badge">
+target="_blank">
 
-                ACTIVE DEVELOPMENT
+Documentation
 
-            </span>
+</a>
 
-            <h1>
-
-                AI-powered operating system
-                <br>
-                for the Anycubic Kobra X
-
-            </h1>
-
-            <p>
-
-                KobraOS transforms the Anycubic Kobra X into a fully local,
-                intelligent 3D printing platform.
-
-                No subscriptions.
-
-                No vendor lock-in.
-
-                No cloud dependency.
-
-                Just fast, private and reliable control powered by ESP32.
-
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="https://github.com/ricardocosta2/KobraOS-public"
-                   target="_blank"
-                   class="primary">
-
-                    ⭐ Star on GitHub
-
-                </a>
-
-                <a href="#features"
-                   class="secondary">
-
-                    Learn More
-
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="hero-right">
-
-            <img src="assets/logo.png"
-                 alt="KobraOS">
-
-        </div>
-
-    </section>
-
-</header>
-
-<main>
-
-<section id="features">
-
-    <h2>
-
-        Why KobraOS?
-
-    </h2>
-
-    <div class="cards">
-
-        <article class="card">
-            <h3>100% Local</h3>
-            <p>No cloud dependency.</p>
-        </article>
-
-        <article class="card">
-            <h3>Automatic Discovery</h3>
-            <p>Find your printer automatically on the local network.</p>
-        </article>
-
-        <article class="card">
-            <h3>Live Printer Data</h3>
-            <p>Real-time temperatures, progress and printer status.</p>
-        </article>
-
-        <article class="card">
-            <h3>Voice Assistant</h3>
-            <p>Interact naturally with your printer.</p>
-        </article>
-
-        <article class="card">
-            <h3>AI Diagnostics</h3>
-            <p>Detect failures before they ruin your prints.</p>
-        </article>
-
-        <article class="card">
-            <h3>Home Assistant</h3>
-            <p>Native local integration.</p>
-        </article>
-
-    </div>
+</div>
 
 </section>
 
-<section id="architecture">
+<section>
 
-    <h2>
+<h2>Current Features</h2>
 
-        Architecture
+<div class="grid">
 
-    </h2>
+<div class="card">
 
-    <div id="architecture-diagram">
+<h3>Local Control</h3>
 
-    </div>
+<p>No cloud dependency. Everything runs on your local network.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Automatic Discovery</h3>
+
+<p>Automatically detects compatible printers on your LAN.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Live Monitoring</h3>
+
+<p>Real-time temperatures, progress, layers and printer status.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Secure MQTT</h3>
+
+<p>Encrypted local communication without external servers.</p>
+
+</div>
+
+<div class="card">
+
+<h3>ESP32 Powered</h3>
+
+<p>Designed around the ESP32-S3 platform for speed and flexibility.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Open Source</h3>
+
+<p>Built by the community and open to contributors.</p>
+
+</div>
+
+</div>
 
 </section>
 
-<section id="roadmap">
+<section>
 
-    <h2>
+<h2>Roadmap</h2>
 
-        Roadmap
+<div class="roadmap">
 
-    </h2>
+<div class="item done">✅ Wi-Fi provisioning</div>
 
-    <div id="roadmap-container">
+<div class="item done">✅ Automatic printer discovery</div>
 
-    </div>
+<div class="item done">✅ Local MQTT communication</div>
 
-</section>
+<div class="item done">✅ Live printer monitoring</div>
 
-<section id="opensource">
+<div class="item">⬜ Touch display interface</div>
 
-    <h2>
+<div class="item">⬜ Voice assistant</div>
 
-        Open Source
+<div class="item">⬜ AI diagnostics</div>
 
-    </h2>
+<div class="item">⬜ Camera-based failure detection</div>
 
-    <p>
+<div class="item">⬜ Home Assistant integration</div>
 
-        KobraOS is built for the community.
-
-        Contributions, ideas and feedback are always welcome.
-
-    </p>
-
-    <a href="https://github.com/ricardocosta2/KobraOS-public"
-       target="_blank"
-       class="primary">
-
-        Become a Contributor
-
-    </a>
+</div>
 
 </section>
-
-</main>
 
 <footer>
 
-    <p>
-
-        © 2026 KobraOS
-
-        •
-
-        Open Source
-
-        •
-
-        Built with ESP32
-
-    </p>
+KobraOS • Open Source • Made by Ricardo Da Costa
 
 </footer>
 
-<script src="script.js"></script>
-
+</body>
+</html>
 </body>
 </html>
