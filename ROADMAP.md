@@ -196,23 +196,6 @@ Future areas include:
 
 ---
 
-### Chapter 12 – AI Knowledge Repository
-
-The most important chapter for AI-assisted development.
-
-Rather than forcing AI to rediscover existing knowledge, this repository provides permanent context including:
-
-* Reverse engineering discoveries
-* Previous design decisions
-* External research
-* Proven implementation patterns
-* Known limitations
-* Future priorities
-
-This transforms KobraOS into a project where AI contributes with full project awareness instead of starting from scratch in every coding session.
-
----
-
 # Vision
 
 The documentation is intended to become much more than a traditional developer manual.
