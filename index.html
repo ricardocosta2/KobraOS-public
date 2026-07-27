@@ -1,425 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>KobraOS</title>
-
-<meta name="description" content="Open-source AI companion for the Anycubic Kobra X">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KobraOS — AI Companion for Anycubic Kobra X</title>
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-
-background:#070b12;
-font-family:Segoe UI,Arial,sans-serif;
-color:white;
-
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-
-padding:40px;
-
-background:
-radial-gradient(circle at top,#12335d 0%,transparent 50%),
-linear-gradient(#070b12,#0b1320);
-
-}
-
-.logo{
-
-width:170px;
-margin-bottom:30px;
-
-filter:drop-shadow(0 0 25px rgba(0,150,255,.45));
-
-}
-
-h1{
-
-font-size:64px;
-font-weight:800;
-
-background:linear-gradient(90deg,#84d5ff,#1d8cff);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-margin-bottom:20px;
-
-}
-
-.tagline{
-
-font-size:24px;
-
-color:#8ebfe5;
-
-margin-bottom:25px;
-
-}
-
-.description{
-
-max-width:850px;
-
-line-height:1.8;
-
-font-size:19px;
-
-color:#bdd8ec;
-
-margin-bottom:40px;
-
-}
-
-.buttons{
-
-display:flex;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-}
-
-.button{
-
-padding:15px 28px;
-
-border-radius:12px;
-
-text-decoration:none;
-
-font-weight:700;
-
-transition:.25s;
-
-}
-
-.primary{
-
-background:#1d8cff;
-
-color:white;
-
-}
-
-.primary:hover{
-
-background:#3da0ff;
-
-}
-
-.secondary{
-
-border:1px solid #356aa8;
-
-color:#8ec8ff;
-
-}
-
-.secondary:hover{
-
-background:#143050;
-
-}
-
-section{
-
-padding:80px 30px;
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-h2{
-
-font-size:42px;
-
-margin-bottom:45px;
-
-text-align:center;
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-}
-
-.card{
-
-background:#0f1827;
-
-border:1px solid #23436d;
-
-border-radius:16px;
-
-padding:30px;
-
-transition:.25s;
-
-}
-
-.card:hover{
-
-transform:translateY(-5px);
-
-border-color:#3798ff;
-
-}
-
-.card h3{
-
-margin-bottom:15px;
-
-color:#7dc7ff;
-
-}
-
-.card p{
-
-color:#b4cfe2;
-
-line-height:1.7;
-
-}
-
-.roadmap{
-
-display:grid;
-
-gap:18px;
-
-max-width:700px;
-
-margin:auto;
-
-}
-
-.item{
-
-padding:16px;
-
-border-radius:10px;
-
-background:#0f1827;
-
-border-left:4px solid #1d8cff;
-
-}
-
-.done{
-
-border-left-color:#22d17a;
-
-}
-
-footer{
-
-padding:35px;
-
-text-align:center;
-
-border-top:1px solid #1b3355;
-
-color:#7098bc;
-
-}
-
-@media(max-width:700px){
-
-h1{
-
-font-size:42px;
-
-}
-
-.tagline{
-
-font-size:20px;
-
-}
-
-.description{
-
-font-size:17px;
-
-}
-
-}
-
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #080d14;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .banner {
+    background: linear-gradient(135deg, #080d14 0%, #0a1628 50%, #080d14 100%);
+    border: 1px solid #1a3a6b;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+  }
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(30,100,200,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,100,200,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .glow { position: absolute; left: -60px; top: -60px; width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(0,140,255,0.18) 0%, transparent 70%); pointer-events: none; }
+  .pulse-line { width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, #1a8fff, #7ecfff, #1a8fff, transparent); }
+  .header { display: flex; align-items: center; gap: 24px; padding: 32px 32px 20px; position: relative; flex-wrap: wrap; }
+  .logo { width: 100px; height: 100px; object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(0,160,255,0.5)); flex-shrink: 0; }
+  .title-block { flex: 1; min-width: 200px; }
+  .project-name { font-size: 36px; font-weight: 800; letter-spacing: -1px;
+    background: linear-gradient(90deg, #7ecfff, #1a8fff, #7ecfff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; }
+  .tagline { font-size: 12px; color: #4a8fc7; letter-spacing: 3px; text-transform: uppercase; margin-top: 6px; }
+  .subtitle { font-size: 14px; color: #8cb8db; margin-top: 10px; line-height: 1.5; max-width: 480px; }
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(34,209,122,0.1); border: 1px solid rgba(34,209,122,0.35);
+    border-radius: 20px; padding: 4px 14px; font-size: 12px; color: #22d17a;
+    font-weight: 600; letter-spacing: 0.5px; }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #22d17a;
+    box-shadow: 0 0 6px #22d17a; animation: blink 1.4s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .sections { display: grid; grid-template-columns: repeat(3, 1fr); }
+  @media(max-width: 680px) { .sections { grid-template-columns: 1fr; } }
+  .section { padding: 20px 22px 24px; border-top: 1px solid #1a3a6b; }
+  .section:not(:last-child) { border-right: 1px solid #1a3a6b; }
+  @media(max-width: 680px) { .section:not(:last-child) { border-right: none; border-bottom: 1px solid #1a3a6b; } }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-done { background: #22d17a; box-shadow: 0 0 6px #22d17a; }
+  .dot-todo { background: #1a8fff; box-shadow: 0 0 6px #1a8fff; }
+  .dot-feat { background: #f5a623; box-shadow: 0 0 6px #f5a623; }
+  .title-done { color: #22d17a; } .title-todo { color: #1a8fff; } .title-feat { color: #f5a623; }
+  .item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 12.5px; line-height: 1.4; }
+  .check { width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 9px; flex-shrink: 0; margin-top: 1px; }
+  .check-done { background: rgba(34,209,122,0.18); color: #22d17a; border: 1px solid #22d17a; }
+  .check-todo { background: rgba(26,143,255,0.12); color: #1a8fff; border: 1px solid #1a8fff; }
+  .check-feat { background: rgba(245,166,35,0.12); color: #f5a623; border: 1px solid #f5a623; }
+  .item-text-done { color: #c8f0de; } .item-text-todo { color: #a8cfe8; } .item-text-feat { color: #e8c888; }
+  .footer { border-top: 1px solid #1a3a6b; padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .footer-left { font-size: 12px; color: #3a6a9a; }
+  .footer-left span { color: #4a8fc7; }
+  .tech-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill { background: rgba(26,143,255,0.1); border: 1px solid rgba(26,143,255,0.3);
+    border-radius: 20px; padding: 3px 10px; font-size: 11px; color: #5aaff0; }
+  .pill.green { background: rgba(34,209,122,0.08); border-color: rgba(34,209,122,0.25); color: #44cc88; }
+  .support { border-top: 1px solid #1a3a6b; padding: 18px 32px; text-align: center; }
+  .support p { font-size: 13px; color: #6a9ac0; margin-bottom: 10px; }
+  .support a { display: inline-block; background: linear-gradient(135deg, #1a8fff, #0a5fc7);
+    color: #fff; text-decoration: none; padding: 8px 22px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    box-shadow: 0 0 16px rgba(26,143,255,0.3); transition: opacity .2s; }
+  .support a:hover { opacity: 0.85; }
+  .ack { border-top: 1px solid #1a3a6b; padding: 10px 32px; font-size: 11px; color: #2a4a6a; text-align: center; }
+  .ack a { color: #3a6a9a; text-decoration: none; }
 </style>
-
 </head>
-
 <body>
+<div class="banner">
+  <div class="grid-bg"></div>
+  <div class="glow"></div>
+  <div class="pulse-line"></div>
 
-<section class="hero">
+  <div class="header">
+    <img class="logo" src="KobraOS.png" alt="KobraOS">
+    <div class="title-block">
+      <div class="project-name">KobraOS</div>
+      <div class="tagline">Smarter Control · Better Prints · More Possibilities</div>
+      <div class="subtitle">An AI-powered companion system for the Anycubic Kobra X — no cloud, no subscriptions, no limits. Everything runs locally on an ESP32-S3.</div>
+    </div>
+    <div class="header-right">
+      <div class="status-badge"><div class="live-dot"></div>Actively in development</div>
+      <div style="font-size:11px;color:#3a6a9a;text-align:right;">ESP32-S3 · ESP-IDF · C++<br>PlatformIO · Local MQTT · No Cloud</div>
+    </div>
+  </div>
 
-<img src="logo.png" class="logo">
+  <div class="sections">
+    <!-- DONE -->
+    <div class="section">
+      <div class="section-title"><div class="dot dot-done"></div><span class="title-done">✓ Already working</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Wi-Fi setup via KobraOS-Setup AP (WPA2)</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">3-step setup wizard with live MQTT mini-dashboard</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Auto-discovery of printer LAN credentials — no cloud</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Encrypted local MQTT connection (mutual TLS)</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">MQTT reconnect with progressive backoff</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Real-time temps, layers, progress, ETA, fan &amp; light</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Live dashboard at /dashboard with quick controls</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Pause / Resume / Stop print from local web UI</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">REST API: /status · /health · /meta · /reset</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Diagnostics JSON export for troubleshooting</span></div>
+      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">All credentials stored securely in NVS on-device</span></div>
+    </div>
 
-<h1>KobraOS</h1>
+    <!-- IN PROGRESS -->
+    <div class="section">
+      <div class="section-title"><div class="dot dot-todo"></div><span class="title-todo">→ In progress</span></div>
+      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Touch screen with real-time printer status</span></div>
+      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">External I2S microphone (away from fan noise)</span></div>
+      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Speaker for AI voice responses</span></div>
+      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">AI integration for natural language queries</span></div>
+      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Camera for visual failure detection</span></div>
+      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Home Assistant integration</span></div>
+      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Broader dashboard UI beyond setup portal</span></div>
+    </div>
 
-<div class="tagline">
+    <!-- END GOAL -->
+    <div class="section">
+      <div class="section-title"><div class="dot dot-feat"></div><span class="title-feat">★ The end goal</span></div>
+      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">"How's the print?" — voice reply with live data</span></div>
+      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Auto-alert: spaghetti, detachment, bad first layer</span></div>
+      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Print history and learning from past failures</span></div>
+      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Home Assistant / Alexa notifications</span></div>
+      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Suggested fixes after a failed print</span></div>
+      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">100% local · private · no subscriptions ever</span></div>
+      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Free and open source for the Kobra X community</span></div>
+    </div>
+  </div>
 
-Open-source AI companion for the Anycubic Kobra X
+  <div class="support">
+    <p>If you find this project useful, any support helps keep it moving forward.</p>
+    <a href="https://ko-fi.com/ricardokcosta" target="_blank">☕ Support on Ko-fi</a>
+  </div>
 
+  <div class="footer">
+    <div class="footer-left">Open source · <span>Anycubic Kobra X</span> · Ricardo Da Costa · 2026</div>
+    <div class="tech-pills">
+      <div class="pill">No cloud</div>
+      <div class="pill">Local LAN</div>
+      <div class="pill">MQTT · TLS</div>
+      <div class="pill green">Open source</div>
+    </div>
+  </div>
+
+  <div class="ack">Protocol findings from <a href="https://github.com/thysson2701/KX-Bridge" target="_blank">KX-Bridge</a> by thysson2701 · Thanks to the Kobra X community</div>
+
+  <div class="pulse-line"></div>
 </div>
-
-<div class="description">
-
-KobraOS transforms the Anycubic Kobra X into a smarter, locally controlled 3D printer.
-
-Built around ESP32, it delivers real-time printer monitoring, local MQTT communication, voice interaction, AI assistance and future Home Assistant integration — all without depending on cloud services.
-
-</div>
-
-<div class="buttons">
-
-<a class="button primary"
-
-href="https://github.com/ricardocosta2/KobraOS-public"
-
-target="_blank">
-
-View on GitHub
-
-</a>
-
-<a class="button secondary"
-
-href="https://github.com/ricardocosta2/KobraOS-public/blob/main/README.md"
-
-target="_blank">
-
-Documentation
-
-</a>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Current Features</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>Local Control</h3>
-
-<p>No cloud dependency. Everything runs on your local network.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Automatic Discovery</h3>
-
-<p>Automatically detects compatible printers on your LAN.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Live Monitoring</h3>
-
-<p>Real-time temperatures, progress, layers and printer status.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Secure MQTT</h3>
-
-<p>Encrypted local communication without external servers.</p>
-
-</div>
-
-<div class="card">
-
-<h3>ESP32 Powered</h3>
-
-<p>Designed around the ESP32-S3 platform for speed and flexibility.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Open Source</h3>
-
-<p>Built by the community and open to contributors.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Roadmap</h2>
-
-<div class="roadmap">
-
-<div class="item done">✅ Wi-Fi provisioning</div>
-
-<div class="item done">✅ Automatic printer discovery</div>
-
-<div class="item done">✅ Local MQTT communication</div>
-
-<div class="item done">✅ Live printer monitoring</div>
-
-<div class="item">⬜ Touch display interface</div>
-
-<div class="item">⬜ Voice assistant</div>
-
-<div class="item">⬜ AI diagnostics</div>
-
-<div class="item">⬜ Camera-based failure detection</div>
-
-<div class="item">⬜ Home Assistant integration</div>
-
-</div>
-
-</section>
-
-<footer>
-
-KobraOS • Open Source • Made by Ricardo Da Costa
-
-</footer>
+</body>
+</html>
 
 </body>
 </html>
