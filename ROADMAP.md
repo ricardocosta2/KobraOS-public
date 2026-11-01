@@ -135,9 +135,9 @@ Tracks the implementation status of every subsystem.
 | Local Storage (NVS) | ✅ Complete |
 | Health / Status / Meta endpoints | ✅ Complete |
 | OTA | ⬜ Planned |
-| Display | ⬜ Planned — v2.0 |
-| AI Assistant | ⬜ Planned — v2.0 |
-| Voice Pipeline | ⬜ Planned — v2.0 |
+| Display | ✅ Complete (GC9A01 1.28", avatar, alerts) |
+| Voice Pipeline | ✅ Complete (wake word + Gemini audio STT/TTS) |
+| AI Assistant | 🔄 In progress (local Companion Core; Gemini provider planned) |
 | Camera / Visual Detection | ⬜ Planned — v2.0 |
 | Firmware Updates | ⬜ Planned — v3.0 |
 

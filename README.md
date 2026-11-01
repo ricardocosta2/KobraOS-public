@@ -54,16 +54,23 @@ No Anycubic account required at runtime. No internet connection required. Everyt
 | **Print controls** | `/pause`, `/resume`, `/stop` accessible from the AP portal |
 | **Factory reset** | `/reset` endpoint to clear all saved credentials |
 | **NVS persistence** | All settings (Wi-Fi, printer IP, MQTT credentials) stored securely on-device |
+| **1.28" round GC9A01 display** | Live print state, layers, ETA, temps on a round screen with band-buffer rendering |
+| **Companion avatar** | Mood states (idle, listening, thinking, speaking, happy, warning, error) with animated expressions |
+| **On-screen alerts** | Transient alerts for finish, errors, pause and link loss |
+| **Voice orchestration** | Hardware-independent state machine (idle, listening, thinking, speaking) driving the avatar |
+| **Local Companion Core** | Answers status, layer, temperature and ETA questions in European Portuguese from live printer data |
+| **ES8311 audio (validated)** | Tone, microphone capture and full-duplex loopback confirmed on hardware |
+| **Companion cues + push-to-talk** | Earcons and GPIO 0 push-to-talk, 16 kHz WAV capture |
+| **Optional Gemini speech** | PT-PT STT + TTS via Gemini native audio, off by default, key stored on-device |
+| **Offline wake word** | "Olá ESP" on ESP32-S3 via ESP-SR WakeNet10, no key needed, validated on hardware |
 
 ### 🔵 In progress
 
-- Touch screen interface showing real-time printer status
-- External I2S microphone (positioned away from fan noise)
-- Speaker for voice responses
-- AI integration for natural language interaction ("How's the print going?")
+- AI provider integration (Gemini) for natural-language queries beyond the local Companion Core
 - Camera for visual failure detection (spaghetti effect, detachment, bad first layer)
 - Full Home Assistant integration
 - Broader dashboard UI beyond the setup portal
+- Custom wake word "Olá Kobra" (quote requested from Espressif)
 
 ### ⭐ End goal
 
