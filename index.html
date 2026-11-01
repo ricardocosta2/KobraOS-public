@@ -1,8 +1,8 @@
-<!DOCTYPE html><html lang="en">
+﻿<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KobraOS — AI Companion for Anycubic Kobra X</title>
+<title>KobraOS â€” AI Companion for Anycubic Kobra X</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -105,95 +105,95 @@
   <div class="pulse-line"></div>
 
   <div class="header">
-    <img class="logo" src="assets/logo.png" alt="KobraOS">
+    <img class="logo" src="logo.png" alt="KobraOS">
     <div class="title-block">
       <div class="project-name">KobraOS</div>
-      <div class="tagline">Smarter Control · Better Prints · More Possibilities</div>
-      <div class="subtitle">An AI-powered companion system for the Anycubic Kobra X — local-first on an ESP32-S3, no subscriptions, and cloud voice stays off until you add your own key.</div>
+      <div class="tagline">Smarter Control Â· Better Prints Â· More Possibilities</div>
+      <div class="subtitle">An AI-powered companion system for the Anycubic Kobra X â€” local-first on an ESP32-S3, no subscriptions, and cloud voice stays off until you add your own key.</div>
     </div>
     <div class="header-right">
       <div class="status-badge"><div class="live-dot"></div>Actively in development</div>
-      <div class="version-badge">v2.0 · voice: offline wake word + optional PT-PT speech</div>
-      <div style="font-size:11px;color:#3a6a9a;text-align:right;">ESP32-S3 · ESP-IDF · C++<br>PlatformIO · Local MQTT · No Cloud</div>
+      <div class="version-badge">v2.0 Â· voice: offline wake word + optional PT-PT speech</div>
+      <div style="font-size:11px;color:#3a6a9a;text-align:right;">ESP32-S3 Â· ESP-IDF Â· C++<br>PlatformIO Â· Local MQTT Â· No Cloud</div>
     </div>
   </div>
 
   <div class="sections">
     <!-- DONE -->
     <div class="section">
-      <div class="section-title"><div class="dot dot-done"></div><span class="title-done">✓ Already working</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Wi-Fi setup via KobraOS-Setup AP (WPA2)</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">3-step setup wizard with live MQTT mini-dashboard</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Auto-discovery of printer LAN credentials — no cloud</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Encrypted local MQTT connection (mutual TLS)</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">MQTT reconnect with progressive backoff</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Real-time temps, layers, progress, ETA, fan &amp; light</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Live dashboard at /dashboard with quick controls</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Pause / Resume / Stop, plus temp, light, fan &amp; camera control</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">REST API: /status · /health · /meta · /reset</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">Diagnostics JSON export for troubleshooting</span></div>
-      <div class="item"><div class="check check-done">✓</div><span class="item-text-done">All credentials stored securely in NVS on-device</span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">1.28" round GC9A01 display with live print state<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Companion avatar with mood states (idle, listening, thinking, happy…)<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">On-screen alerts for finish, errors, pause &amp; link loss<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Animated expressions: breathing, blink, bounce, waveforms<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Status screen with layers + ETA (e.g. L12/345 · ETA 1h05)<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Auto screen switching: status while printing, avatar when idle<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Remote screen control: <code>/avatar</code> preview &amp; <code>/alert</code> endpoints<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Voice state machine (idle, listening, thinking, speaking) driving the avatar<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Ask the printer: local answers for status, layers, temps &amp; ETA<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">ES8311 audio validated on hardware: tone, mic &amp; full-duplex loopback<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Companion cues + push-to-talk on GPIO 0, 16 kHz WAV capture<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Answers in European Portuguese from live printer telemetry<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Gemini speech: PT-PT STT + TTS via Gemini native audio, off by default, key on-device<span class="tag-new">NEW</span></span></div>
-      <div class="item item-new"><div class="check check-done">✓</div><span class="item-text-done">Offline wake word "Olá ESP" on the ESP32-S3 (ESP-SR WakeNet10, no key)<span class="tag-new">NEW</span></span></div>
+      <div class="section-title"><div class="dot dot-done"></div><span class="title-done">âœ“ Already working</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">Wi-Fi setup via KobraOS-Setup AP (WPA2)</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">3-step setup wizard with live MQTT mini-dashboard</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">Auto-discovery of printer LAN credentials â€” no cloud</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">Encrypted local MQTT connection (mutual TLS)</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">MQTT reconnect with progressive backoff</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">Real-time temps, layers, progress, ETA, fan &amp; light</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">Live dashboard at /dashboard with quick controls</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">Pause / Resume / Stop, plus temp, light, fan &amp; camera control</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">REST API: /status Â· /health Â· /meta Â· /reset</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">Diagnostics JSON export for troubleshooting</span></div>
+      <div class="item"><div class="check check-done">âœ“</div><span class="item-text-done">All credentials stored securely in NVS on-device</span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">1.28" round GC9A01 display with live print state<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Companion avatar with mood states (idle, listening, thinking, happyâ€¦)<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">On-screen alerts for finish, errors, pause &amp; link loss<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Animated expressions: breathing, blink, bounce, waveforms<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Status screen with layers + ETA (e.g. L12/345 Â· ETA 1h05)<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Auto screen switching: status while printing, avatar when idle<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Remote screen control: <code>/avatar</code> preview &amp; <code>/alert</code> endpoints<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Voice state machine (idle, listening, thinking, speaking) driving the avatar<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Ask the printer: local answers for status, layers, temps &amp; ETA<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">ES8311 audio validated on hardware: tone, mic &amp; full-duplex loopback<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Companion cues + push-to-talk on GPIO 0, 16 kHz WAV capture<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Answers in European Portuguese from live printer telemetry<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Gemini speech: PT-PT STT + TTS via Gemini native audio, off by default, key on-device<span class="tag-new">NEW</span></span></div>
+      <div class="item item-new"><div class="check check-done">âœ“</div><span class="item-text-done">Offline wake word "OlÃ¡ ESP" on the ESP32-S3 (ESP-SR WakeNet10, no key)<span class="tag-new">NEW</span></span></div>
       <div class="item item-new"><div class="check check-done">&#10003;</div><span class="item-text-done">Wake word validated on hardware (synthetic + real voice)<span class="tag-new">NEW</span></span></div>
     </div>
 
     <!-- IN PROGRESS -->
     <div class="section">
-      <div class="section-title"><div class="dot dot-todo"></div><span class="title-todo">→ Next up</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Fully offline PT-PT speech (wake word is local; answers still need the optional key)<span class="tag-new" style="background:#f5a623">NEXT</span></span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">External I2S microphone (away from fan noise)</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">First AI provider integration (Gemini) for natural-language queries</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Camera for visual failure detection</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Home Assistant integration</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">OTA firmware updates</span></div>
-      <div class="item"><div class="check check-todo">→</div><span class="item-text-todo">Printer file browser in the dashboard</span></div>
+      <div class="section-title"><div class="dot dot-todo"></div><span class="title-todo">â†’ Next up</span></div>
+      <div class="item"><div class="check check-todo">â†’</div><span class="item-text-todo">Fully offline PT-PT speech (wake word is local; answers still need the optional key)<span class="tag-new" style="background:#f5a623">NEXT</span></span></div>
+      <div class="item"><div class="check check-todo">â†’</div><span class="item-text-todo">External I2S microphone (away from fan noise)</span></div>
+      <div class="item"><div class="check check-todo">â†’</div><span class="item-text-todo">First AI provider integration (Gemini) for natural-language queries</span></div>
+      <div class="item"><div class="check check-todo">â†’</div><span class="item-text-todo">Camera for visual failure detection</span></div>
+      <div class="item"><div class="check check-todo">â†’</div><span class="item-text-todo">Home Assistant integration</span></div>
+      <div class="item"><div class="check check-todo">â†’</div><span class="item-text-todo">OTA firmware updates</span></div>
+      <div class="item"><div class="check check-todo">â†’</div><span class="item-text-todo">Printer file browser in the dashboard</span></div>
     </div>
 
     <!-- END GOAL -->
     <div class="section">
-      <div class="section-title"><div class="dot dot-feat"></div><span class="title-feat">★ The end goal</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">"How's the print?" — voice reply with live data</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Auto-alert: spaghetti, detachment, bad first layer</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Print history and learning from past failures</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Home Assistant / Alexa notifications</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Suggested fixes after a failed print</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Local-first · private by default · no subscriptions ever</span></div>
-      <div class="item"><div class="check check-feat">★</div><span class="item-text-feat">Free and open source for the Kobra X community</span></div>
+      <div class="section-title"><div class="dot dot-feat"></div><span class="title-feat">â˜… The end goal</span></div>
+      <div class="item"><div class="check check-feat">â˜…</div><span class="item-text-feat">"How's the print?" â€” voice reply with live data</span></div>
+      <div class="item"><div class="check check-feat">â˜…</div><span class="item-text-feat">Auto-alert: spaghetti, detachment, bad first layer</span></div>
+      <div class="item"><div class="check check-feat">â˜…</div><span class="item-text-feat">Print history and learning from past failures</span></div>
+      <div class="item"><div class="check check-feat">â˜…</div><span class="item-text-feat">Home Assistant / Alexa notifications</span></div>
+      <div class="item"><div class="check check-feat">â˜…</div><span class="item-text-feat">Suggested fixes after a failed print</span></div>
+      <div class="item"><div class="check check-feat">â˜…</div><span class="item-text-feat">Local-first Â· private by default Â· no subscriptions ever</span></div>
+      <div class="item"><div class="check check-feat">â˜…</div><span class="item-text-feat">Free and open source for the Kobra X community</span></div>
     </div>
   </div>
 
   <div class="support">
     <p>If you find this project useful, any support helps keep it moving forward.</p>
-    <a href="https://ko-fi.com/ricardokcosta" target="_blank">☕ Support on Ko-fi</a>
+    <a href="https://ko-fi.com/ricardokcosta" target="_blank">â˜• Support on Ko-fi</a>
   </div>
 
   <div class="footer">
-    <div class="footer-left">Open source · <span>Anycubic Kobra X</span> · Ricardo Da Costa · 2026</div>
+    <div class="footer-left">Open source Â· <span>Anycubic Kobra X</span> Â· Ricardo Da Costa Â· 2026</div>
     <div class="tech-pills">
       <div class="pill">Local-first</div>
       <div class="pill">Local LAN</div>
-      <div class="pill">MQTT · TLS</div>
+      <div class="pill">MQTT Â· TLS</div>
       <div class="pill">ESP32-S3</div>
-      <div class="pill">GC9A01 · 1.28"</div>
-      <div class="pill green">Voice · PT-PT</div>
-      <div class="pill green">Wake word · offline</div>
+      <div class="pill">GC9A01 Â· 1.28"</div>
+      <div class="pill green">Voice Â· PT-PT</div>
+      <div class="pill green">Wake word Â· offline</div>
     </div>
   </div>
 
-  <div class="ack">Protocol findings from <a href="https://github.com/thysson2701/KX-Bridge" target="_blank">KX-Bridge</a> by thysson2701 · Thanks to the Kobra X community</div>
+  <div class="ack">Protocol findings from <a href="https://github.com/thysson2701/KX-Bridge" target="_blank">KX-Bridge</a> by thysson2701 Â· Thanks to the Kobra X community</div>
 
   <div class="pulse-line"></div>
 </div>
